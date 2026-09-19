@@ -1,0 +1,288 @@
+﻿@import "tailwindcss";
+
+@layer base {
+  :root {
+    --win95-gray: #c0c0c0;
+    --win95-light: #ffffff;
+    --win95-dark: #808080;
+    --win95-black: #000000;
+    --win95-navy: #000080;
+    --win95-blue: #1084d0;
+    --win95-teal: #008080;
+    --win95-yellow: #ffff00;
+    --win95-link: #0000ee;
+    --win95-visited: #551a8b;
+    --win95-font: 'Segoe UI', Tahoma, 'MS Sans Serif', Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #c0c0c0;
+    color: #000000;
+    font-family: var(--win95-font);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    user-select: none;
+  }
+
+  /* Classic altf4 Scrollbar */
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #dfdfdf;
+    background-image: linear-gradient(45deg, #c0c0c0 25%, transparent 25%),
+                      linear-gradient(-45deg, #c0c0c0 25%, transparent 25%),
+                      linear-gradient(45deg, transparent 75%, #c0c0c0 75%),
+                      linear-gradient(-45deg, transparent 75%, #c0c0c0 75%);
+    background-size: 4px 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: 1px 1px 0px 1px #000000;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background-color: #c0c0c0;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+  }
+}
+
+/* ========================================================
+   altf4 ATOMIC 3D BEVEL CLASSES
+   ======================================================== */
+
+/* Classic Outer Window Border */
+.win95-window {
+  background-color: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  box-shadow: 1px 1px 0px 1px #000000, 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Raised Bevel (Buttons, Toolbars, Menus) */
+.win95-raised {
+  background-color: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  box-shadow: 1px 1px 0px 1px #000000;
+}
+
+/* Sunken / Inset Bevel (Inputs, Viewports, Status Bars) */
+.win95-sunken {
+  background-color: #ffffff;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset 1px 1px 0px #000000;
+}
+
+/* Sunken Gray Container (e.g. status bar segments) */
+.win95-sunken-gray {
+  background-color: #c0c0c0;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset 1px 1px 0px #000000;
+}
+
+/* Classic Button */
+.win95-btn {
+  background-color: #c0c0c0;
+  color: #000000;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  box-shadow: 1px 1px 0px 1px #000000;
+  font-family: var(--win95-font);
+  font-weight: 600;
+  font-size: 11px;
+  padding: 3px 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  outline: none;
+  user-select: none;
+}
+.win95-btn:hover {
+  background-color: #d4d4d4;
+}
+.win95-btn:active {
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset 1px 1px 0px #000000;
+  padding-top: 4px;
+  padding-left: 11px;
+  padding-right: 9px;
+  padding-bottom: 2px;
+}
+.win95-btn:focus-visible {
+  outline: 1px dotted #000000;
+  outline-offset: -4px;
+}
+
+/* Small Titlebar Square Buttons (─, □, ×) */
+.win95-title-btn {
+  width: 16px;
+  height: 14px;
+  background-color: #c0c0c0;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  box-shadow: 1px 1px 0px #000000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--win95-font);
+  font-size: 10px;
+  font-weight: bold;
+  color: #000000;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+}
+.win95-title-btn:active {
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  box-shadow: none;
+}
+
+/* Classic Active Titlebar Gradient */
+.win95-titlebar {
+  background: linear-gradient(90deg, #000080 0%, #1084d0 100%);
+  color: #ffffff;
+  font-family: var(--win95-font);
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+
+/* Classic Inactive Titlebar */
+.win95-titlebar-inactive {
+  background: #808080;
+  color: #c0c0c0;
+  font-family: var(--win95-font);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* Classic Property Sheet Tab */
+.win95-tab {
+  background-color: #c0c0c0;
+  color: #000000;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: none;
+  font-family: var(--win95-font);
+  font-size: 11px;
+  margin-right: 2px;
+  position: relative;
+  cursor: pointer;
+}
+.win95-tab-active {
+  background-color: #c0c0c0;
+  color: #000000;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #c0c0c0;
+  margin-top: -2px;
+  margin-bottom: -2px;
+  padding-bottom: 4px;
+  z-index: 10;
+}
+
+/* Classic Chunky Progress Bar */
+.win95-progress-track {
+  background-color: #ffffff;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset 1px 1px 0px #000000;
+  padding: 2px;
+}
+.win95-progress-chunk {
+  height: 100%;
+  background-color: #000080;
+  width: 10px;
+  margin-right: 2px;
+}
+
+/* Authentic BSOD styling */
+.win95-bsod {
+  background-color: #0000aa;
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Classic 90s Web Links */
+a.win95-link, .win95-link a {
+  color: #0000ee;
+  text-decoration: underline;
+}
+a.win95-link:visited, .win95-link a:visited {
+  color: #551a8b;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.99); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+@keyframes win95Spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.15s ease-out forwards;
+}
+
+.animate-shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: win95Spin 8s linear infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
