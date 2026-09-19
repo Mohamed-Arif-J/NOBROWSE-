@@ -10,8 +10,6 @@ export function TabBar({
   onSwitchTab,
   onNewTab,
   onCloseTab,
-  isMaximized,
-  onToggleMaximize,
   soundEnabled,
   volume
 }) {
@@ -33,65 +31,8 @@ export function TabBar({
     onSwitchTab(tabId);
   };
 
-  const handleWindowClose = () => {
-    if (soundEnabled) soundEffects.click(volume);
-  };
-
-  const handleWindowMinimize = () => {
-    if (soundEnabled) soundEffects.click(volume);
-  };
-
-  const activeTab = tabs.find(t => t.id === activeTabId) || tabs[0];
-
   return (
     <div className="flex flex-col select-none z-30 shrink-0 bg-[#c0c0c0]">
-      {/* 1. TITLE BAR */}
-      <div className="win95-titlebar h-6 px-1.5 flex items-center justify-between mx-0.5 mt-0.5">
-        <div className="flex items-center gap-1.5 overflow-hidden">
-          <div className="w-4 h-4 flex items-center justify-center shrink-0">
-            <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="none">
-              <rect x="1" y="2" width="6" height="5" fill="#ff4b4b" />
-              <rect x="8" y="1" width="6" height="5" fill="#00d040" />
-              <rect x="2" y="8" width="6" height="5" fill="#0080ff" />
-              <rect x="9" y="7" width="6" height="5" fill="#ffd700" />
-            </svg>
-          </div>
-
-          <span className="truncate text-[11px] font-bold tracking-wide">
-            {activeTab.title
-              ? activeTab.title.includes('NOBROWSE™')
-                ? activeTab.title
-                : `${activeTab.title} - NOBROWSE™`
-              : "NOBROWSE™ - The browser that sometimes understands you"}
-          </span>
-        </div>
-
-        {/* Window Controls (─, □, ✕) */}
-        <div className="flex items-center gap-1 shrink-0 ml-2">
-          <button
-            onClick={handleWindowMinimize}
-            className="win95-title-btn"
-            title="Minimize"
-          >
-            _
-          </button>
-          <button
-            onClick={onToggleMaximize}
-            className="win95-title-btn font-mono"
-            title={isMaximized ? "Restore" : "Maximize"}
-          >
-            {isMaximized ? "❐" : "□"}
-          </button>
-          <button
-            onClick={handleWindowClose}
-            className="win95-title-btn font-bold text-red-900"
-            title="Close"
-          >
-            ✕
-          </button>
-        </div>
-      </div>
-
       {/* 2. PROPERTY TABS STRIP */}
       <div className="flex items-end px-2 pt-1.5 overflow-x-auto no-scrollbar border-b-2 border-[#ffffff] relative z-10 bg-[#c0c0c0]">
         {tabs.map((tab) => {
